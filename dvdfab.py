@@ -151,6 +151,7 @@ if __name__ == '__main__':
         params={'lang': 'en', 'software': ','.join(map(str, product['software'][platform][software]))}
     ).json()['data']
 
-    _, index = pick([v['version'] for v in versions], 'Version')
+    version, index = pick([v['version'] for v in versions], 'Version')
+    print(f'[I] Version: {version}')
     source = versions[index]['extend_download']
     print(f'[I] Download: {source}')
