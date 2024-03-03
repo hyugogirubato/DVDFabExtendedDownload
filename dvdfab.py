@@ -147,7 +147,7 @@ if __name__ == '__main__':
 
     versions = requests.request(
         method='GET',
-        url='https://backend.streamfab.com/change_log/extend_download',
+        url='https://backend.dvdfab.cn/change_log/extend_download',
         params={'lang': 'en', 'software': ','.join(map(str, product['software'][platform][software]))}
     ).json()['data']
 
