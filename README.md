@@ -42,7 +42,7 @@ Follow the on-screen prompts to select the product, platform, software, and vers
 
 ## Contributing
 
-Contributions to the DVDFab ExtendDownload script are welcome! Feel free to fork the repository and submit pull requests. If you encounter any issues or have suggestions for improvement, please [open an issue](https://github.com/hyugogirubato/DVDFabExtendDownload/issues) on GitHub.
+Contributions to the DVDFab ExtendDownload are welcome! Feel free to fork the repository and submit pull requests. If you encounter any issues or have suggestions for improvement, please [open an issue](https://github.com/hyugogirubato/DVDFabExtendDownload/issues) on GitHub.
 
 ## License
 
