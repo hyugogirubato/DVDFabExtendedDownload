@@ -1,7 +1,10 @@
-import requests
+import json
+
+from pathlib import Path
 
 from pick import pick
 
+# https://web-backend-us.dvdfab.cn/member/eds_product
 EDS_PRODUCTS = {
     'DVDFab': {
         'eds_pid': 20021,
@@ -136,32 +139,8 @@ if __name__ == '__main__':
         software, _ = pick([k for k in product['software'][platform].keys()], 'Software')
         print('[+] Software:', software)
 
-        r = requests.request(
-            method='GET',
-            url='https://web-backend-us.dvdfab.cn/change_log/extend_download',
-            params={
-                'lang': 'en',
-                'software': product['software'][platform][software]
-            },
-            headers={
-                'Accept': 'application/json',
-                'Accept-Encoding': 'gzip, deflate, br, zstd',
-                'Accept-Language': 'en-US,en;q=0.9',
-                'Connection': 'keep-alive',
-                'Host': 'web-backend-us.dvdfab.cn',
-                'Origin': 'https://www.dvdfab.cn',
-                'Referer': 'https://www.dvdfab.cn/',
-                'sec-ch-ua': '"Not)A;Brand";v="99", "Microsoft Edge";v="127", "Chromium";v="127"',
-                'sec-ch-ua-mobile': '?0',
-                'sec-ch-ua-platform': '"Windows"',
-                'Sec-Fetch-Dest': 'empty',
-                'Sec-Fetch-Mode': 'cors',
-                'Sec-Fetch-Site': 'same-site',
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0'
-            }
-        )
-        r.raise_for_status()
-        versions = r.json()['data']
+        backup = json.loads(Path('backup.json').read_bytes())
+        versions = backup[name][platform][software]
 
         if versions:
             version, index = pick([v['version'] for v in versions], 'Version')

@@ -2,6 +2,9 @@
 
 This script facilitates the extended download service for DVDFab products. It provides an interactive command-line interface that allows users to select a DVDFab product, platform, software, and version to retrieve a download link.
 
+> [!WARNING]  
+> Due to a recent restriction on their API, the current project provides a static backup of old links. New links will not be added, but a backup script is available for volunteers with a subscription.
+
 ## Features
 
 - **🎮 Interactive CLI**: Uses the `pick` library for an easy selection menu.
